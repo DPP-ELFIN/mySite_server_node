@@ -1,11 +1,11 @@
 /** @format */
 
 const express = require("express");
+const { login, regist } = require("../controller/userController");
 
 const user = express.Router();
 
-user.get("/login", (req, res) => {
-  res.send("/login");
-});
+user.post("/login", login);
+user.post("/regist", regist);
 
 module.exports = user;
