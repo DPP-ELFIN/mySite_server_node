@@ -1,5 +1,6 @@
 /** @format */
 const { User } = require("../model/index");
+const { createToken } = require("../utils/jwt");
 
 /**
  *
@@ -7,9 +8,17 @@ const { User } = require("../model/index");
  * @param {Response} res
  */
 
-module.exports.login = (req, res, next) => {
-  res.send("login");
+module.exports.regist = async (req, res, next) => {
+  //   console.log(req.body);
+  const userModel = new User(req.body);
+  const dbback = await userModel.save();
+  // console.log(dbback);
+  res.status(201).json(dbback);
 };
-module.exports.regist = (req, res, next) => {
-  res.send("regist");
+module.exports.login = async (req, res, next) => {
+  let dbback = await User.findOne(req.body);
+  //   console.log(dbback);
+  dbback = dbback.toJSON();
+  dbback.token = await createToken(dbback);
+  res.status(201).json(dbback);
 };
