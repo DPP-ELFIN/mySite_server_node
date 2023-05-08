@@ -20,5 +20,8 @@ module.exports.login = async (req, res, next) => {
   //   console.log(dbback);
   dbback = dbback.toJSON();
   dbback.token = await createToken(dbback);
-  res.status(201).json(dbback);
+  res.data = dbback;
+  res.msg = "登录成功";
+  res.status(201);
+  next();
 };
