@@ -17,4 +17,5 @@ main()
 
 module.exports = {
   User: mongoose.model("User", require("./userModel")),
+  Menu:mongoose.model('Menu',require('./menuModel'))
 };
