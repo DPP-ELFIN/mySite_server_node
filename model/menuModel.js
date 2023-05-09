@@ -1,3 +1,5 @@
+/** @format */
+
 const mongoose = require("mongoose");
 
 const menuModel = new mongoose.Schema({
@@ -19,18 +21,26 @@ const menuModel = new mongoose.Schema({
     type: String,
     require: true,
   },
-  url:{
-    type:String,
-    require:true
+  title: {
+    type: String,
+    require: true,
   },
-  children:{
-    type:Array,
-    default:[]
+  component: {
+    type: String,
+    require: true,
   },
-  meta:{
-    type:Object,
-    default:{}
-  }
+  url: {
+    type: String,
+    require: true,
+  },
+  children: {
+    type: Array,
+    default: [],
+  },
+  meta: {
+    type: Object,
+    default: {},
+  },
 });
 
 module.exports = menuModel;

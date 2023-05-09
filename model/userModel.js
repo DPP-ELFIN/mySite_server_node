@@ -32,6 +32,10 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
+  roleId: {
+    type: Number,
+    default: 2,
+  },
 });
 
 module.exports = userSchema;
