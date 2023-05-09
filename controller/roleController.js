@@ -23,3 +23,15 @@ module.exports.setRole = async (req, res, next) => {
   res.status(201);
   next();
 };
+module.exports.updateRole = async (req, res, next) => {
+  const dbback = await Role.findOneAndUpdate({ roleId: req.body.roleId }, req.body, { new: true });
+  res.data = dbback;
+  res.msg = "更新成功";
+  next();
+};
+module.exports.deleteRole = async (req, res, next) => {
+  const dbback = await Role.findOneAndDelete({ roleId: req.query.roleId });
+  res.data = dbback;
+  res.msg = "删除成功";
+  next();
+};
