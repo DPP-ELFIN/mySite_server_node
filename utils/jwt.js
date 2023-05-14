@@ -11,7 +11,8 @@ module.exports.createToken = async (userInfo) => {
   return await sign({ userInfo }, "a76c7437-e36e-43b7-92f2-483e0ac53ed3", { expiresIn: 60 * 60 * 24 });
 };
 
-module.verifyToken = async (req, res, next) => {
+module.exports.verifyToken = async (req, res, next) => {
+  if (!req.headers.token) return res.status(401).json({ error: "身份验证失败！" });
   const token = req.headers.token.split("Bearer ")[1];
   if (!token) {
     res.status(401).json({ error: "身份验证失败！" });

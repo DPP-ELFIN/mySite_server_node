@@ -12,7 +12,7 @@ app.use("/api", router);
 
 app.use((req, res, next) => {
   // console.log(res);
-  res.json({ code: res.statusCode, data: res.data, ms: res.msg });
+  res.json({ code: res.statusCode, data: res.data || {}, msg: res.msg || "" });
 });
 // 没有匹配到的路由 客户端错误
 app.use((req, res, next) => {
