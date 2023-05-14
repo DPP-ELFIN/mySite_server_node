@@ -32,6 +32,11 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
+  role:{
+    type:Number,
+    default:0 , //0 超级管理员，1、管理员，3、普通用户
+  }
+
 });
 
 module.exports = userSchema;

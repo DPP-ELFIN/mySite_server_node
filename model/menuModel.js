@@ -23,10 +23,10 @@ const menuModel = new mongoose.Schema({
     type:String,
     require:true
   },
-  children:{
-    type:Array,
-    default:[]
-  },
+//   children:{
+//     type:Array,
+//     default:[]
+//   },
   meta:{
     type:Object,
     default:{}
