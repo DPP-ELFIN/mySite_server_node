@@ -37,6 +37,14 @@ const menuModel = new mongoose.Schema({
     type: Object,
     default: {},
   },
+//   children:{
+//     type:Array,
+//     default:[]
+//   },
+  meta:{
+    type:Object,
+    default:{}
+  }
 });
 
 module.exports = menuModel;
