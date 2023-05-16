@@ -9,7 +9,6 @@ module.exports = (validations) => {
     if (errors.isEmpty()) {
       return next();
     }
-
-    res.status(401).json({ errors: errors.array() });
+    res.status(401).json({ errors: errors.array(), code: res.statusCode });
   };
 };

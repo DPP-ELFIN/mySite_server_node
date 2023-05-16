@@ -12,12 +12,14 @@ app.use("/api", router);
 
 app.use((req, res, next) => {
   // console.log(res);
-  res.json({ code: res.statusCode, data: res.data || {}, msg: res.msg || "" });
+  res.json({ code: res.statusCode || 400, data: res.data || {}, msg: res.msg || "出错了！！" });
 });
+
 // 没有匹配到的路由 客户端错误
 app.use((req, res, next) => {
   res.status(404).send("404 NOT FOUND");
 });
+
 // 服务器错误
 app.use((err, req, res, next) => {
   console.log(err);
