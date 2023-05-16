@@ -21,15 +21,11 @@ const menuModel = new mongoose.Schema({
     type: String,
     require: true,
   },
-  title: {
-    type: String,
-    require: true,
-  },
   component: {
     type: String,
     require: true,
   },
-  url: {
+  path: {
     type: String,
     require: true,
   },
