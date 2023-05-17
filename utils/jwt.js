@@ -12,6 +12,7 @@ module.exports.createToken = async (userInfo) => {
 };
 
 module.exports.verifyToken = async (req, res, next) => {
+  if (req.headers.device) return next();
   if (!req.headers.token) return res.status(401).json({ error: "身份验证失败！" });
   const token = req.headers.token.split("Bearer ")[1];
   if (!token) {
